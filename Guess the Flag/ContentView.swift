@@ -8,36 +8,30 @@
 
 import SwiftUI
 
-/// This returns exactly **ONE** view of a specific type that conforms to the `View` protocol
 struct ContentView: View {
+    var countries = ["Estonia", "France", "Germany", "Ireland", "Italy", "Nigeria", "Poland", "Russia", "Spain", "UK", "US"]
+    var correctAnswer = Int.random(in: 0...2)
+    
     var body: some View {
-        TabView {
-            VStack(spacing: 10) {
+        ZStack {
+            Color.blue.edgesIgnoringSafeArea(.all)
+            
+            VStack(spacing: 30) {
+                VStack {
+                    Text("Tap the flag of").foregroundColor(.white)
+                    Text(countries[correctAnswer]).foregroundColor(.white)
+                }
+                
+                ForEach(0 ..< 3) { number in
+                    Button(action: {
+                        // flag was tapped
+                    }) {
+                        Image(self.countries[number]).renderingMode(.original)
+                    }
+                }
+                
                 Spacer()
-                _3x3Grid()
-                Colors_and_Frames()
-            }.tabItem {
-                Image(systemName: "1.square.fill")
-                Text("Grids")
-                }
-            
-            Gradients()
-                .tabItem {
-                    Image(systemName: "2.square.fill")
-                    Text("Gradients")
-                }
-            
-            Buttons()
-                .tabItem {
-                    Image(systemName: "3.square.fill")
-                    Text("Buttons")
-                }
-            
-            Alerts()
-                .tabItem {
-                    Image(systemName: "4.square.fill")
-                    Text("Alerts")
-                }
+            }
         }
     }
 }
