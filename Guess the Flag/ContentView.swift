@@ -21,7 +21,8 @@ struct ContentView: View {
             
             VStack(spacing: 30) {
                 VStack {
-                    Text("Tap the flag of").foregroundColor(.white)
+                    Text("Tap the flag of")
+                        .foregroundColor(.white)
                     Text(countries[correctAnswer])
                         .foregroundColor(.white)
                         .font(.largeTitle)
@@ -41,6 +42,12 @@ struct ContentView: View {
                             .shadow(color: .black, radius: 2)
                     }
                 }
+                
+                Text("Score: \(score)")
+                    .foregroundColor(.white)
+                    .font(.title)
+                    .fontWeight(.heavy)
+                    .shadow(color: .yellow, radius: 4)
                 
                 Spacer()
             }
