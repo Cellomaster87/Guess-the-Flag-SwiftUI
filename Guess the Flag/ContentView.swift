@@ -35,11 +35,14 @@ struct ContentView: View {
                     }) {
                         /// Four built-in shapes in Swift: rectangle, rounded rectangle, circle, capsule
                         /// To draw a border around an image, use the `overlay()` modifier
-                        Image(self.countries[number])
-                            .renderingMode(.original)
-                            .clipShape(Capsule())
-                            .overlay(Capsule().stroke(Color.black, lineWidth: 1))
-                            .shadow(color: .black, radius: 2)
+                        
+                        /// Commented out for Project 3 challenge 3
+//                        Image(self.countries[number])
+//                            .renderingMode(.original)
+//                            .clipShape(Capsule())
+//                            .overlay(Capsule().stroke(Color.black, lineWidth: 1))
+//                            .shadow(color: .black, radius: 2)
+                        FlagImage(name: self.countries[number])
                     }
                 }
                 
@@ -63,7 +66,7 @@ struct ContentView: View {
             scoreTitle = "Correct!"
             score += 1
         } else {
-            scoreTitle = "Wrong!"
+            scoreTitle = "Wrong!\nThat's the flag of \(countries[number])!"
             score -= 1
         }
         
